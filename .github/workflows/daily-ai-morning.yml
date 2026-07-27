@@ -5,8 +5,6 @@ on:
   # initialized without requiring manual navigation in repository settings.
   push:
     branches: [main]
-    paths:
-      - ".github/workflows/daily-ai-morning.yml"
   schedule:
     - cron: "0 8 * * *"
       timezone: "Asia/Shanghai"
