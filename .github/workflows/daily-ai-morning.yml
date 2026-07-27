@@ -1,0 +1,95 @@
+name: Daily AI Morning
+
+on:
+  schedule:
+    - cron: "0 8 * * *"
+      timezone: "Asia/Shanghai"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: ai-morning-pages
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out the website
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Fetch Horizon
+        run: git clone --depth 1 https://github.com/Thysrael/Horizon.git horizon
+
+      - name: Install Horizon
+        run: uv sync --directory horizon
+
+      - name: Generate bilingual AI briefing
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          test -n "$DEEPSEEK_API_KEY"
+          cp config/horizon.github.json horizon/data/config.json
+          uv run --directory horizon horizon --hours 24
+          python scripts/import_horizon.py --source-dir horizon/data/summaries
+
+      - name: Build the website
+        run: |
+          npm ci
+          npm run build
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist/client
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Notify Feishu of success
+        if: success()
+        env:
+          FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
+          SITE_URL: https://iamzchn.github.io/AI-Morning-Magazine/
+        run: |
+          test -n "$FEISHU_WEBHOOK_URL"
+          curl --fail --silent --show-error --request POST "$FEISHU_WEBHOOK_URL" \
+            --header "Content-Type: application/json" \
+            --data "{\"msg_type\":\"text\",\"content\":{\"text\":\"AI 晨读已更新：$SITE_URL\"}}"
+
+  notify-failure:
+    needs: build-and-deploy
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify Feishu of failure
+        env:
+          FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          test -n "$FEISHU_WEBHOOK_URL"
+          curl --fail --silent --show-error --request POST "$FEISHU_WEBHOOK_URL" \
+            --header "Content-Type: application/json" \
+            --data "{\"msg_type\":\"text\",\"content\":{\"text\":\"AI 晨读更新失败，请查看运行日志：$RUN_URL\"}}"

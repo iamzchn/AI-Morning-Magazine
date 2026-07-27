@@ -1,0 +1,49 @@
+{
+  "version": "1.0",
+  "ai": {
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "api_key_env": "DEEPSEEK_API_KEY",
+    "base_url": "https://api.deepseek.com",
+    "languages": ["zh", "en"],
+    "temperature": 0.3,
+    "max_tokens": 4096,
+    "analysis_concurrency": 4,
+    "enrichment_concurrency": 4
+  },
+  "sources": {
+    "rss": [
+      { "name": "OpenAI News", "url": "https://openai.com/news/rss.xml", "enabled": true, "category": "ai-news" },
+      { "name": "Hugging Face Blog", "url": "https://huggingface.co/blog/feed.xml", "enabled": true, "category": "machine-learning" },
+      { "name": "GitHub Blog", "url": "https://github.blog/feed/", "enabled": true, "category": "open-source" }
+    ],
+    "hackernews": { "enabled": false, "fetch_top_stories": 20, "min_score": 100 },
+    "github": [],
+    "reddit": { "enabled": false },
+    "twitter": { "enabled": false },
+    "openbb": { "enabled": false },
+    "ossinsight": { "enabled": false },
+    "gdelt": { "enabled": false },
+    "google_news": { "enabled": false }
+  },
+  "filtering": {
+    "ai_score_threshold": 6.0,
+    "time_window_hours": 24,
+    "max_items": 12,
+    "category_groups": {},
+    "default_group": "other",
+    "default_group_limit": null
+  },
+  "email": {
+    "enabled": false,
+    "smtp_server": "disabled.example.com",
+    "smtp_port": 465,
+    "imap_server": "disabled.example.com",
+    "imap_port": 993,
+    "email_address": "disabled@example.com",
+    "sender_name": "Horizon Daily",
+    "subscribe_keyword": "SUBSCRIBE",
+    "unsubscribe_keyword": "UNSUBSCRIBE"
+  },
+  "webhook": { "enabled": false }
+}
