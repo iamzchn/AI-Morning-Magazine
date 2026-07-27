@@ -52,13 +52,20 @@ jobs:
         run: uv sync --directory horizon
 
       - name: Generate bilingual AI briefing
+        id: briefing
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: |
           test -n "$DEEPSEEK_API_KEY"
           cp config/horizon.github.json horizon/data/config.json
           uv run --directory horizon horizon --hours 24
-          python scripts/import_horizon.py --source-dir horizon/data/summaries
+          if find horizon/data/summaries -name 'horizon-*-zh.md' -print -quit | grep -q .; then
+            python scripts/import_horizon.py --source-dir horizon/data/summaries
+            echo "has_news=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "No new eligible articles; keeping the previously published issue."
+            echo "has_news=false" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Build the website
         run: |
@@ -75,7 +82,10 @@ jobs:
         uses: actions/deploy-pages@v4
 
       - name: Notify Feishu of success
-        if: success()
+        # The push-triggered first deployment should announce the site even if
+        # the current 24-hour RSS window has no items. Scheduled runs notify
+        # only when a genuinely new issue was generated.
+        if: ${{ success() && (steps.briefing.outputs.has_news == 'true' || github.event_name == 'push') }}
         env:
           FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
           SITE_URL: https://iamzchn.github.io/AI-Morning-Magazine/
