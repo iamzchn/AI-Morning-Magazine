@@ -76,8 +76,8 @@ def main() -> None:
         "items": all_items[:9],
         "failures": failures,
     }
-    target = Path(__file__).parent / "data" / "latest.json"
-    target.parent.mkdir(exist_ok=True)
+    target = Path(__file__).parent / "public" / "data" / "latest.json"
+    target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"Collected {len(payload['items'])} items into {target}")
     if failures:

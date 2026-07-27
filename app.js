@@ -48,4 +48,3 @@ async function loadIssue() {
   bindSaveButtons(); render();
 }
 loadIssue();
-if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js");

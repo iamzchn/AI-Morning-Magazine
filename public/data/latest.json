@@ -1,0 +1,85 @@
+{
+  "updated_at": "2026-07-27T06:24:23.873262+00:00",
+  "sources": [
+    "OpenAI",
+    "Hugging Face",
+    "GitHub Blog"
+  ],
+  "items": [
+    {
+      "source": "GitHub Blog",
+      "title": "The case for a cooldown: Why Dependabot now waits before issuing version updates",
+      "link": "https://github.blog/security/supply-chain-security/the-case-for-a-cooldown-why-dependabot-now-waits-before-issuing-version-updates/",
+      "excerpt": "<p>A new default three-day cooldown delays version update pull requests so maintainers and security researchers can address findings in a release before it gets into your code.</p> <p>The post <a href=\"https://github.blog/security/supply-chain-security/the-cas",
+      "published": "Thu, 23 Jul 2026 16:00:00 +0000",
+      "sort_date": "2026-07-23T16:00:00+00:00"
+    },
+    {
+      "source": "OpenAI",
+      "title": "Launching Health in ChatGPT",
+      "link": "https://openai.com/index/health-in-chatgpt",
+      "excerpt": "Health in ChatGPT now lets eligible U.S. users securely connect medical records and Apple Health to get more personalized insights and better understand their health.",
+      "published": "Thu, 23 Jul 2026 00:00:00 GMT",
+      "sort_date": "2026-07-23T00:00:00+00:00"
+    },
+    {
+      "source": "GitHub Blog",
+      "title": "Copilot vs. raw API access: What are you actually paying for?",
+      "link": "https://github.blog/ai-and-ml/github-copilot/copilot-vs-raw-api-access-what-are-you-actually-paying-for/",
+      "excerpt": "<p>Copilot now bills usage at listed API rates. Compare direct model access with the coding workflow, policy, and harness work around it.</p> <p>The post <a href=\"https://github.blog/ai-and-ml/github-copilot/copilot-vs-raw-api-access-what-are-you-actually-payi",
+      "published": "Wed, 22 Jul 2026 19:00:00 +0000",
+      "sort_date": "2026-07-22T19:00:00+00:00"
+    },
+    {
+      "source": "GitHub Blog",
+      "title": "Next chapter: Restructuring GitHub’s bug bounty program",
+      "link": "https://github.blog/security/next-chapter-restructuring-githubs-bug-bounty-program/",
+      "excerpt": "<p>GitHub is making some significant changes to its bug bounty program, shifting its focus to give researchers a better experience working with the GitHub team.</p> <p>The post <a href=\"https://github.blog/security/next-chapter-restructuring-githubs-bug-bounty",
+      "published": "Wed, 22 Jul 2026 16:00:00 +0000",
+      "sort_date": "2026-07-22T16:00:00+00:00"
+    },
+    {
+      "source": "OpenAI",
+      "title": "Building AI infrastructure with the Effingham County community",
+      "link": "https://openai.com/index/building-ai-infrastructure-with-the-effingham-county-community",
+      "excerpt": "OpenAI announces Project Camellia in Effingham County, Georgia, with commitments to responsible energy, community investment, jobs, and access to Codex.",
+      "published": "Wed, 22 Jul 2026 13:00:00 GMT",
+      "sort_date": "2026-07-22T13:00:00+00:00"
+    },
+    {
+      "source": "OpenAI",
+      "title": "How news organizations are using AI to advance their vital missions",
+      "link": "https://openai.com/index/how-news-organizations-are-using-ai",
+      "excerpt": "News organizations are using AI to strengthen reporting, grow audiences, and improve business operations, with OpenAI tools supporting journalists and publishers worldwide.",
+      "published": "Wed, 22 Jul 2026 13:00:00 GMT",
+      "sort_date": "2026-07-22T13:00:00+00:00"
+    },
+    {
+      "source": "OpenAI",
+      "title": "Advancing the next era of national science",
+      "link": "https://openai.com/index/advancing-the-next-era-of-national-science",
+      "excerpt": "OpenAI outlines its commitment to advancing American science working with the U.S. Department of Energy and national labs to use frontier AI to accelerate discovery.",
+      "published": "Wed, 22 Jul 2026 12:00:00 GMT",
+      "sort_date": "2026-07-22T12:00:00+00:00"
+    },
+    {
+      "source": "OpenAI",
+      "title": "Introducing OpenAI Presence",
+      "link": "https://openai.com/index/introducing-openai-presence",
+      "excerpt": "Introducing OpenAI Presence, a proven enterprise AI agent platform that helps organizations deploy trusted voice and chat agents for customer and internal workflows.",
+      "published": "Wed, 22 Jul 2026 05:30:00 GMT",
+      "sort_date": "2026-07-22T05:30:00+00:00"
+    },
+    {
+      "source": "OpenAI",
+      "title": "NTT DATA Group cuts incident analysis to 30 minutes with Codex",
+      "link": "https://openai.com/index/ntt-data",
+      "excerpt": "NTT DATA Group uses ChatGPT Enterprise and Codex to help 9,000 employees automate work, cut incident analysis to 30 minutes, and scale secure AI adoption.",
+      "published": "Wed, 22 Jul 2026 00:00:00 GMT",
+      "sort_date": "2026-07-22T00:00:00+00:00"
+    }
+  ],
+  "failures": [
+    "Hugging Face: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)>"
+  ]
+}
