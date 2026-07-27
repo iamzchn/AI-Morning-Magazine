@@ -10,4 +10,6 @@ execFileSync(process.execPath, [vite, "build"], { cwd: root, stdio: "inherit" })
 fs.mkdirSync(path.join(output, "server"), { recursive: true });
 fs.mkdirSync(path.join(output, ".openai"), { recursive: true });
 fs.copyFileSync(path.join(root, ".openai", "hosting.json"), path.join(output, ".openai", "hosting.json"));
-fs.copyFileSync(path.join(root, "scripts", "server.cjs"), path.join(output, "server", "index.js"));
+const document = fs.readFileSync(path.join(output, "client", "index.html"), "utf8");
+const worker = `export default { fetch() { return new Response(${JSON.stringify(document)}, { headers: { "content-type": "text/html; charset=utf-8" } }); } };\n`;
+fs.writeFileSync(path.join(output, "server", "index.js"), worker, "utf8");
