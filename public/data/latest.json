@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-27T07:46:27.302773+00:00",
+  "updated_at": "2026-07-27T07:56:29.291520+00:00",
   "sources": [
     "Horizon + DeepSeek",
     "OpenAI News",
@@ -9,14 +9,22 @@
   "items": [
     {
       "source": "Horizon AI 精选",
-      "title": "Dependabot 引入三天冷却期用于版本更新",
+      "title": "Dependabot 新增三天冷却期后再发版本更新",
+      "title_zh": "Dependabot 新增三天冷却期后再发版本更新",
+      "title_en": "Dependabot Adds Three-Day Cooldown for Version Updates",
       "link": "https://github.blog/security/supply-chain-security/the-case-for-a-cooldown-why-dependabot-now-waits-before-issuing-version-updates/",
-      "excerpt": "GitHub 的 Dependabot 现在默认在打开版本更新拉取请求前强制执行三天的冷却期，为维护者和安全研究人员提供时间发现并响应新版本中的漏洞。 这一变化降低了自动引入受损或有缺陷依赖的风险，改善了依赖 Dependabot 的数百万仓库的供应链安全性。 冷却期仅适用于版本更新，不适用于安全更新，并且可以通过 Dependabot 配置文件中的 \\`cooldown\\` 选项进行配置。默认延迟为包发布之日起三天。",
+      "excerpt": "GitHub 的 Dependabot 现在默认在发出版本更新拉取请求前实施三天冷却期，延迟更新以便有时间发现漏洞并修复。 这一变化通过降低采用恶意或有缺陷版本的风险来提升供应链安全，为维护者和安全研究人员在更新进入用户代码库前识别问题提供了窗口期。 冷却期是一个可配置选项；如果未指定，Dependabot 将应用默认的三天期限。它适用于 Dependabot 支持的所有依赖生态系统。",
+      "summary_zh": "GitHub 的 Dependabot 现在默认在发出版本更新拉取请求前实施三天冷却期，延迟更新以便有时间发现漏洞并修复。 这一变化通过降低采用恶意或有缺陷版本的风险来提升供应链安全，为维护者和安全研究人员在更新进入用户代码库前识别问题提供了窗口期。 冷却期是一个可配置选项；如果未指定，Dependabot 将应用默认的三天期限。它适用于 Dependabot 支持的所有依赖生态系统。",
+      "summary_en": "GitHub&\\#x27;s Dependabot now implements a default three-day cooldown before issuing version update pull requests, delaying updates to allow time for vulnerability discovery and fixes. This change improves supply chain security by reducing the risk of adopting malicious or buggy releases, giving maintainers and security researchers a window to identify issues before the update reaches users&\\#x27; codebases. The cooldown is a configurable option; if not specified, Dependabot applies the default three-day period. It applies to all dependency ecosystems supported by Dependabot.",
       "published": "",
       "sort_date": "",
       "importance": 7.0,
-      "tags": ""
+      "tags": "`#Dependabot`, `#supply chain security`, `#dependency management`, `#GitHub`"
     }
   ],
-  "failures": []
+  "failures": [],
+  "languages": {
+    "zh": "horizon-2026-07-27-zh.md",
+    "en": "horizon-2026-07-27-en.md"
+  }
 }

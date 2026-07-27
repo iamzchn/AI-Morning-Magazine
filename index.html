@@ -7,6 +7,7 @@
     <meta name="description" content="每天五分钟读完的 AI 精选杂志" />
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="feed.css" />
     <title>AI 晨读 · 今日精选</title>
   </head>
   <body>
@@ -41,6 +42,11 @@
       <section class="briefs" aria-labelledby="briefs-title">
         <div class="section-heading"><div><p class="section-label">今日 3 件事</p><h2 id="briefs-title">不用追完所有消息，只看这些。</h2></div><p class="reading-note">每条约 1 分钟</p></div>
         <div class="brief-grid" id="brief-grid"></div>
+      </section>
+
+      <section class="all-news" aria-labelledby="all-news-title">
+        <div class="section-heading"><div><p class="section-label">完整信息流</p><h2 id="all-news-title">本次抓取的全部资讯</h2></div><p class="reading-note" id="all-news-count">正在读取</p></div>
+        <div class="all-news-grid" id="all-news-grid"></div>
       </section>
 
       <section class="try-section"><div><p class="section-label">值得一试</p><h2>给信息过载的人：<br />先做自己的“AI 晨读”。</h2></div><div class="try-copy"><p>不需要一开始懂 GitHub 或写很多代码。只要从 5 个可信来源开始，让 AI 每天帮你筛出最值得看的内容。</p><a href="#how-it-works">看看它怎么运作 ↓</a></div></section>
