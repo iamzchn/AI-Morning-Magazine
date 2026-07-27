@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f1e8" />
+    <meta name="description" content="每天五分钟读完的 AI 精选杂志" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>AI 晨读 · 今日精选</title>
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="masthead">
+        <a class="brand" href="#top" aria-label="AI 晨读首页">AI 晨读</a>
+        <p class="tagline">每天五分钟，读懂值得关注的 AI 变化</p>
+        <button class="saved-button" id="show-saved" type="button">收藏 <span id="saved-count">0</span></button>
+      </header>
+
+      <section class="cover" id="top" aria-labelledby="cover-title">
+        <p class="issue" id="issue-date">正在读取今日资讯…</p>
+        <h1 id="cover-title">每天五分钟，<br />读懂值得关注的 AI 变化。</h1>
+        <p class="lede" id="cover-lede">来自可信官方来源的最新更新，正在为你整理。</p>
+        <div class="cover-meta"><span>编辑精选</span><span>约 5 分钟阅读</span><span>中英资讯 · 中文解读</span></div>
+      </section>
+
+      <section class="headline" aria-labelledby="headline-title">
+        <div class="section-label">今日头条</div>
+        <article class="hero-story">
+          <div class="story-number">01</div>
+          <div class="story-content">
+            <p class="category" id="headline-category">最新官方动态</p>
+            <h2 id="headline-title">正在读取头条…</h2>
+            <p class="summary" id="headline-summary">稍候，这里将显示最新一条来自可信来源的更新。</p>
+            <div class="why"><strong>为什么重要</strong><p>未来最有价值的 AI 产品，可能不是又一个聊天窗口，而是替你持续处理信息、表格、邮件和研究任务的小助手。</p></div>
+            <div class="story-actions"><a id="headline-link" href="https://openai.com/news/" target="_blank" rel="noreferrer">阅读原文 <span>↗</span></a><button class="save" type="button" data-title="今日头条">收藏</button></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="briefs" aria-labelledby="briefs-title">
+        <div class="section-heading"><div><p class="section-label">今日 3 件事</p><h2 id="briefs-title">不用追完所有消息，只看这些。</h2></div><p class="reading-note">每条约 1 分钟</p></div>
+        <div class="brief-grid" id="brief-grid"></div>
+      </section>
+
+      <section class="try-section"><div><p class="section-label">值得一试</p><h2>给信息过载的人：<br />先做自己的“AI 晨读”。</h2></div><div class="try-copy"><p>不需要一开始懂 GitHub 或写很多代码。只要从 5 个可信来源开始，让 AI 每天帮你筛出最值得看的内容。</p><a href="#how-it-works">看看它怎么运作 ↓</a></div></section>
+
+      <section class="how" id="how-it-works" aria-labelledby="how-title"><p class="section-label">它如何为你工作</p><h2 id="how-title">搜集、筛选、解释，最后才送到你眼前。</h2><ol><li><span>1</span>读取你选择的官方博客、论文、开源项目和行业观点</li><li><span>2</span>合并重复信息，筛掉不重要的噪音</li><li><span>3</span>用中文解释“发生什么、为什么重要、要不要继续看”</li></ol></section>
+
+      <footer><p>AI 晨读 · 这是你的私人 AI 情报杂志</p><p>原型第 001 期</p></footer>
+    </main>
+    <dialog id="saved-dialog"><div class="dialog-title"><h2>我的收藏</h2><button id="close-dialog" type="button" aria-label="关闭">×</button></div><ul id="saved-list"></ul><p id="empty-saved">还没有收藏。看到想稍后细读的内容，就点“收藏”。</p></dialog>
+    <script src="app.js"></script>
+  </body>
+</html>
